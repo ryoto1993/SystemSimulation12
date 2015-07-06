@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="-74.68005540166203" y="206.8656509695291">Simulator.Light</node>
+    <node x="250.79916897506928" y="188.1343490304709">Simulator.Desk</node>
+    <node x="162.25000000000006" y="727.0">Simulator.Main</node>
+    <node x="76.69999999999999" y="0.5">Simulator.Supply</node>
+    <node x="56.45000000000002" y="373.0">Simulator.Office</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Simulator.Office" target="Simulator.Light">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Simulator.Main" target="Simulator.Office">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Simulator.Light" target="Simulator.Supply">
+      <point x="0.0" y="-47.0" />
+      <point x="108.5" y="162.0" />
+      <point x="180.45" y="162.0" />
+      <point x="-52.25" y="68.5" />
+    </edge>
+    <edge source="Simulator.Office" target="Simulator.Desk">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Simulator.Desk" target="Simulator.Supply">
+      <point x="0.0" y="-68.0" />
+      <point x="364.5" y="162.0" />
+      <point x="284.95000000000005" y="162.0" />
+      <point x="52.25000000000003" y="68.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.8815628815628815" x="246.0" y="262.2437673130194" />
+  <SelectedNodes>
+    <node>Simulator.Supply</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Inner Classes</Category>
+    <Category>Properties</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Constructors</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
