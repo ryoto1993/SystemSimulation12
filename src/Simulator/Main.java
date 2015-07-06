@@ -46,18 +46,19 @@ public class Main {
         // 計算
         GASolution solution = new GASolution(office);
 
-        /*office.getLight(0).setLuminosity(855);
-        office.getLight(1).setLuminosity(166);
-        office.getLight(2).setLuminosity(226);
-        office.getLight(3).setLuminosity(961);
-        office.getLight(4).setLuminosity(2678);
-        office.getLight(5).setLuminosity(2215);
-        office.getLight(6).setLuminosity(49);
-        office.getLight(7).setLuminosity(208);
-        office.getLight(8).setLuminosity(1569);
-        office.getLight(9).setLuminosity(2885);
-        office.getLight(10).setLuminosity(1402);
-        office.getLight(11).setLuminosity(226);
+        /*
+        office.getLight(0).setLuminosity(341);
+        office.getLight(1).setLuminosity(489);
+        office.getLight(2).setLuminosity(89);
+        office.getLight(3).setLuminosity(58);
+        office.getLight(4).setLuminosity(1834);
+        office.getLight(5).setLuminosity(569);
+        office.getLight(6).setLuminosity(79);
+        office.getLight(7).setLuminosity(1116);
+        office.getLight(8).setLuminosity(1762);
+        office.getLight(9).setLuminosity(1280);
+        office.getLight(10).setLuminosity(505);
+        office.getLight(11).setLuminosity(472);
         */
 
         office.setLights(solution.run());

@@ -24,12 +24,15 @@ public class GASolution {
 
     private static int eval(final Genotype<IntegerGene> genotype) {
         Office tempOffice = office;
+
         for(int i=0; i<12; i++) {
             tempOffice.getLight(i).setLuminosity(genotype.getChromosome().getGene(i).intValue());
         }
 
         // ToDo: calculate minimul error here.
-        return CalcTools.calcSumErrors(tempOffice.getLights(), tempOffice.getDesks());
+        int tmp = CalcTools.calcSumErrors(tempOffice.getLights(), tempOffice.getDesks());
+
+        return tmp;
     }
 
     public GASolution(Office office) {
