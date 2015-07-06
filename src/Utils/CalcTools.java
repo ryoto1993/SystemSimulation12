@@ -20,4 +20,23 @@ public class CalcTools {
 
         return illuminance;
     }
+
+    public static int calcSumErrors(Light[] lights, Desk[] desks) {
+        int error = 0;
+
+        // “ñæŒë·
+        /*
+        for(int i=0; i<desks.length; i++) {
+            error += Math.pow((calcIlluminance(lights, desks[i]) - desks[i].getTagretIlluminance()), 2.0);
+        }
+        */
+        // Å‘åŒë·
+        for(int i=0; i<desks.length; i++) {
+            int tmp = calcIlluminance(lights, desks[i]) - desks[i].getTagretIlluminance();
+            tmp = tmp < 0 ? -tmp : tmp;
+            error = error < tmp ? tmp : error;
+        }
+
+        return error;
+    }
 }

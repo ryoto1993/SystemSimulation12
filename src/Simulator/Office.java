@@ -26,6 +26,11 @@ public class Office {
     public void constructLights(int id, double x, double y) {
         lights[id] = new Light(x, y, height);
     }
+    public Light[] getLights() {return lights;}
+    public void setLights(Light[] lightsin) {
+        this.lights = lightsin;
+    }
+    public Desk[] getDesks() {return desks;}
     public void getLightsInfo() {
         for(int i=0; i<lights.length; i++) {
             System.out.print("照明" + String.format("%-2d", i) + " -> ");

@@ -22,6 +22,7 @@ public class Desk extends Supply {
     public void setTargetIlluminance(int target) {
         targetIlluminance = target;
     }
+    public int getTagretIlluminance() { return targetIlluminance;}
     public void setUser(String name) {
         user = name;
     }

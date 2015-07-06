@@ -44,10 +44,23 @@ public class Main {
         office.getDesk(5).setTargetIlluminance(500);
 
         // 計算
-        // office.getLight(0).setLuminosity(300);
-        // office.getLight(1).setLuminosity(500);
-        new GASolution(office);
+        GASolution solution = new GASolution(office);
 
+        /*office.getLight(0).setLuminosity(855);
+        office.getLight(1).setLuminosity(166);
+        office.getLight(2).setLuminosity(226);
+        office.getLight(3).setLuminosity(961);
+        office.getLight(4).setLuminosity(2678);
+        office.getLight(5).setLuminosity(2215);
+        office.getLight(6).setLuminosity(49);
+        office.getLight(7).setLuminosity(208);
+        office.getLight(8).setLuminosity(1569);
+        office.getLight(9).setLuminosity(2885);
+        office.getLight(10).setLuminosity(1402);
+        office.getLight(11).setLuminosity(226);
+        */
+
+        office.setLights(solution.run());
         office.calculateDesksIlluminance();
 
         // 環境チェック
