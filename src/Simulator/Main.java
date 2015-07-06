@@ -1,5 +1,7 @@
 package Simulator;
 
+import Utils.GASolution;
+
 /**
  * Created by Ryoto on 7/7/2015.
  * SystemSimulation
@@ -42,8 +44,10 @@ public class Main {
         office.getDesk(5).setTargetIlluminance(500);
 
         // 計算
-        office.getLight(0).setLuminosity(300);
-        office.getLight(1).setLuminosity(500);
+        // office.getLight(0).setLuminosity(300);
+        // office.getLight(1).setLuminosity(500);
+        new GASolution(office);
+
         office.calculateDesksIlluminance();
 
         // 環境チェック
