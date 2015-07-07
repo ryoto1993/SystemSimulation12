@@ -6,8 +6,8 @@ import Utils.CalcTools;
  * Created by Ryoto on 7/7/2015.
  */
 public class Office {
-    private Desk[] desks;
-    private Light[] lights;
+    public Desk[] desks;
+    public Light[] lights;
     private double height;
 
     public Office() {

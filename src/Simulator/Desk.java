@@ -4,8 +4,8 @@ package Simulator;
  * Created by Ryoto on 7/7/2015.
  */
 public class Desk extends Supply {
-    private int illuminance;
-    private int targetIlluminance;
+    public int illuminance;
+    public int targetIlluminance;
     private String user;
 
     public Desk(double x, double y, double z) {

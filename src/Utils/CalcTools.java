@@ -9,6 +9,8 @@ import Simulator.Light;
 public class CalcTools {
     private CalcTools() {}
 
+
+
     public static int calcIlluminance(Light[] lights, Desk desk) {
         int illuminance = 0;
 
