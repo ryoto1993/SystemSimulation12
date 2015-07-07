@@ -1,5 +1,6 @@
 package Utils;
 
+import Simulator.Desk;
 import Simulator.Light;
 import Simulator.Office;
 
@@ -20,23 +21,68 @@ import java.util.stream.Stream;
  * Created by Ryoto on 7/7/2015.
  */
 public class GASolution {
-    public static Office office;
+    public static Office calcOffice;
 
-    private static int eval(final Genotype<IntegerGene> genotype) {
-        Office tempOffice = office;
+    private static int eval(final Genotype<IntegerGene> gt) {
+        int error = 0;
+        int[] lum = new int[12];
 
         for(int i=0; i<12; i++) {
-            tempOffice.getLight(i).setLuminosity(genotype.getChromosome().getGene(i).intValue());
+            lum[i] = gt.getChromosome().getGene(i).intValue();
         }
 
         // ToDo: calculate minimul error here.
-        int tmp = CalcTools.calcSumErrors(tempOffice.getLights(), tempOffice.getDesks());
+        for(int i=0; i<calcOffice.desks.length; i++) {
+            int tmp = calcIlluminance(lum, calcOffice.desks[i]) - calcOffice.desks[i].getTagretIlluminance();
+            tmp = tmp < 0 ? -tmp : tmp;
+            error = error < tmp ? tmp : error;
+        }
 
-        return tmp;
+        /*
+        if(tmp<50) {
+            System.out.println("==========" + tmp);
+            for(int i=0; i<12; i++) {
+                System.out.println(office.getLight(i).getLuminosity());
+            }
+        }
+        */
+
+        return error;
     }
 
-    public GASolution(Office office) {
-        this.office = office;
+    public GASolution() {
+        calcOffice = new Office();
+
+        calcOffice.createDesks(6);
+        calcOffice.createLights(12);
+
+        // Æ–¾Ý’u
+        int tmp = 0;
+        for(int i=0; i<3; i++)
+            for(int j=0; j<4; j++) {
+                calcOffice.constructLights(tmp, j * 1.8, i * 1.8);
+                tmp++;
+            }
+
+        // ƒfƒXƒNÝ’u
+        tmp = 0;
+        for(int i=0; i<2; i++)
+            for(int j=0; j<3; j++) {
+                calcOffice.constructDesks(tmp, 1.0 + 1.2*j, 0.75 + 0.7*i);
+                tmp++;
+            }
+        calcOffice.getDesk(0).setUser("‘O“c");
+        calcOffice.getDesk(0).setTargetIlluminance(700);
+        calcOffice.getDesk(1).setUser("‘å“‡");
+        calcOffice.getDesk(1).setTargetIlluminance(500);
+        calcOffice.getDesk(2).setUser("‹g“c");
+        calcOffice.getDesk(2).setTargetIlluminance(300);
+        calcOffice.getDesk(3).setUser("Žsì");
+        calcOffice.getDesk(3).setTargetIlluminance(900);
+        calcOffice.getDesk(4).setUser("‰J‹{");
+        calcOffice.getDesk(4).setTargetIlluminance(700);
+        calcOffice.getDesk(5).setUser("‹{è");
+        calcOffice.getDesk(5).setTargetIlluminance(500);
     }
 
     public Light[] run() {
@@ -66,12 +112,24 @@ public class GASolution {
         System.out.println(best);
 
         for(int i=0; i<12; i++) {
-            this.office.getLight(i).setLuminosity(best.getGenotype().getChromosome().getGene(i).intValue());
+            calcOffice.getLight(i).setLuminosity(best.getGenotype().getChromosome().getGene(i).intValue());
         }
 
-        System.out.println(CalcTools.calcSumErrors(this.office.getLights(), this.office.getDesks()));
+        System.out.println(CalcTools.calcSumErrors(calcOffice.getLights(), calcOffice.getDesks()));
 
-        return this.office.getLights();
+        return calcOffice.getLights();
+    }
+
+    public static int calcIlluminance(int[] lights, Desk desk) {
+        int illuminance = 0;
+
+        for(int i=0; i<lights.length; i++) {
+            illuminance += 2.0
+                    / Math.pow(desk.getPoint().distance(calcOffice.lights[i].getPoint()), 3.0)
+                    * lights[i];
+        }
+
+        return illuminance;
     }
 
 
