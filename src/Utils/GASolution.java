@@ -11,12 +11,6 @@ import org.jenetics.*;
 import org.jenetics.engine.Engine;
 import org.jenetics.engine.EvolutionStatistics;
 
-import org.jenetics.util.RandomRegistry;
-
-import java.util.Random;
-import java.util.function.Function;
-import java.util.stream.Stream;
-
 /**
  * Created by Ryoto on 7/7/2015.
  */
@@ -38,14 +32,6 @@ public class GASolution {
             error = error < tmp ? tmp : error;
         }
 
-        /*
-        if(tmp<50) {
-            System.out.println("==========" + tmp);
-            for(int i=0; i<12; i++) {
-                System.out.println(office.getLight(i).getLuminosity());
-            }
-        }
-        */
 
         return error;
     }
@@ -91,7 +77,7 @@ public class GASolution {
                         GASolution::eval ,
                         IntegerChromosome.of(0, 2000, 12)
                 )
-                .populationSize(1000)
+                .populationSize(5000)
                 .optimize(Optimize.MINIMUM)
                 .alterers(
                         new Mutator<>(0.03),
@@ -103,7 +89,7 @@ public class GASolution {
                 statistics = EvolutionStatistics.ofNumber();
 
         final Phenotype<IntegerGene, Integer> best = engine.stream()
-                .limit(bySteadyFitness(500))
+                .limit(bySteadyFitness(2500))
                 .limit(10000)
                 .peek(statistics)
                 .collect(toBestPhenotype());

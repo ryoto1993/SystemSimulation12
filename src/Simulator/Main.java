@@ -46,21 +46,6 @@ public class Main {
         // 計算
         GASolution solution = new GASolution();
 
-        /*
-        office.getLight(0).setLuminosity(795);
-        office.getLight(1).setLuminosity(243);
-        office.getLight(2).setLuminosity(1718);
-        office.getLight(3).setLuminosity(1473);
-        office.getLight(4).setLuminosity(1904);
-        office.getLight(5).setLuminosity(421);
-        office.getLight(6).setLuminosity(35);
-        office.getLight(7).setLuminosity(604);
-        office.getLight(8).setLuminosity(1963);
-        office.getLight(9).setLuminosity(264);
-        office.getLight(10).setLuminosity(603);
-        office.getLight(11).setLuminosity(1492);
-        */
-
         office.setLights(solution.run());
         office.calculateDesksIlluminance();
 
